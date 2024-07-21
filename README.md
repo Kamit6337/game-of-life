@@ -1,30 +1,24 @@
-# React + TypeScript + Vite
+# Game of Life
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.   
+It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.
 
-Currently, two official plugins are available:
+[Live Website](https://game-of-life-ochre.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Rules
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Game of Life is a two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead.   
+Every cell interacts with its eight neighbors, which are the cells that are horizontally, vertically, or diagonally adjacent.
 
-- Configure the top-level `parserOptions` property like this:
+At each step in time, the following transitions occur:
+- Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+- Any live cell with two or three live neighbours lives on to the next generation.
+- Any live cell with more than three live neighbours dies, as if by overpopulation.
+- Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+  
+## Screenshots
+Here's a screenshot of this project
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![project1](https://amit-general-bucket.s3.ap-south-1.amazonaws.com/images/game+of+life.png)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
